@@ -8,6 +8,7 @@ import {
 
 import { Country } from 'src/app/common/country';
 import { State } from 'src/app/common/state';
+import { CartService } from 'src/app/services/cart.service';
 import { ShopFormService } from 'src/app/services/shop-form.service';
 import { ShopValidators } from 'src/app/validators/shop-validators';
 
@@ -31,7 +32,8 @@ export class CheckoutComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private shopForm: ShopFormService
+    private shopForm: ShopFormService,
+    private cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -135,6 +137,15 @@ export class CheckoutComponent implements OnInit {
         ?.setValue(this.countries[5]);
       this.getStates('billingAddress');
     });
+
+    //call the cart service
+
+    this.reviewCartDetails();
+  }
+  reviewCartDetails() {
+    //subsrive to cart service for qty and price
+    this.cartService.totalQuantity.subscribe(data => this.totalQuantity = data)
+    this.cartService.totalPrice.subscribe(data => this.totalPrice = data)
   }
   //GETTERS FOR ALL FORM FIELDS FOR VALIDATION USE
   get firstName() {
@@ -188,7 +199,7 @@ export class CheckoutComponent implements OnInit {
   get creditCardSecurityCode() {
     return this.checkoutFormGroup.get('creditCard.securityCode');
   }
- 
+
   onSubmit() {
     if (this.checkoutFormGroup.invalid) {
       this.checkoutFormGroup.markAllAsTouched();
