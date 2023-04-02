@@ -7,14 +7,16 @@
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
     border-radius:0;
-    background:#205b8d
+    background:#205b8d;
+    border-radius: 10px;
 }
 .login-status-header{
     display:-webkit-box;
     display:-webkit-flex;
     display:-moz-box;
     display:-ms-flexbox;
-    display:flex
+    display:flex;
+    gap: 1vw;
 }
 
 .login-status-user-info {
