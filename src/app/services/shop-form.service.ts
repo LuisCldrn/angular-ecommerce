@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Country } from '../common/country';
 import { State } from '../common/state';
 
@@ -8,8 +9,9 @@ import { State } from '../common/state';
   providedIn: 'root',
 })
 export class ShopFormService {
-  private countriesUrl: string = 'http://localhost:8080/api/countries';
-  private statesUrl: string = 'http://localhost:8080/api/states';
+  private apiUrl = environment.luv2shopApiUrl;
+  private countriesUrl: string = this.apiUrl + '/countries';
+  private statesUrl: string = this.apiUrl + '/states';
 
   getCreditCardMonths(startMonth: number): Observable<number[]> {
     let data: number[] = [];
