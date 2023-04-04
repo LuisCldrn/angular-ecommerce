@@ -16,32 +16,48 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
-import { OktaAuthGuard, OktaAuthModule, OktaCallbackComponent, OKTA_CONFIG } from '@okta/okta-angular';
-import {OktaAuth} from '@okta/okta-auth-js'
+import {
+  OktaAuthGuard,
+  OktaAuthModule,
+  OktaCallbackComponent,
+  OKTA_CONFIG,
+} from '@okta/okta-angular';
+import { OktaAuth } from '@okta/okta-auth-js';
 import myAppConfig from './config/my-app-config';
 import { MembersPageComponent } from './components/members-page/members-page.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
-function sendToLoginPage(oktaAuth: OktaAuth, injector: Injector){
+function sendToLoginPage(oktaAuth: OktaAuth, injector: Injector) {
   const router = injector.get(Router);
   router.navigate(['/login']);
 }
 const routes: Routes = [
-  {path: 'members', component: MembersPageComponent, canActivate: [OktaAuthGuard], data: {onAuthRequired: sendToLoginPage}},
-  {path: 'login', component: LoginComponent},
-  {path: 'login/callback', component: OktaCallbackComponent},
-  {path: 'products/:id', component: ProductDetailsComponent},
-  {path: 'checkout', component: CheckoutComponent},
-  {path: 'search/:keyword', component: ProductListComponent},
-  {path: 'category/:id', component: ProductListComponent},
-  {path: 'cart-details', component: CartDetailsComponent},
-  {path: 'category', component: ProductListComponent},
-  {path: 'products', component: ProductListComponent},
-  {path: '', redirectTo: '/products', pathMatch: 'full'},
-  {path: '**', redirectTo: '/products', pathMatch: 'full'},
-]
-
+  {
+    path: 'orders',
+    component: OrderHistoryComponent,
+    canActivate: [OktaAuthGuard],
+    data: { onAuthRequired: sendToLoginPage },
+  },
+  {
+    path: 'members',
+    component: MembersPageComponent,
+    canActivate: [OktaAuthGuard],
+    data: { onAuthRequired: sendToLoginPage },
+  },
+  { path: 'login', component: LoginComponent },
+  { path: 'login/callback', component: OktaCallbackComponent },
+  { path: 'products/:id', component: ProductDetailsComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'search/:keyword', component: ProductListComponent },
+  { path: 'category/:id', component: ProductListComponent },
+  { path: 'cart-details', component: CartDetailsComponent },
+  { path: 'category', component: ProductListComponent },
+  { path: 'products', component: ProductListComponent },
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: '**', redirectTo: '/products', pathMatch: 'full' },
+];
 
 @NgModule({
   declarations: [
@@ -56,6 +72,7 @@ const routes: Routes = [
     LoginComponent,
     LoginStatusComponent,
     MembersPageComponent,
+    OrderHistoryComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -65,7 +82,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     OktaAuthModule,
   ],
-  providers: [ProductService, {provide: OKTA_CONFIG, useValue: {oktaAuth}}],
-  bootstrap: [AppComponent]
+  providers: [ProductService, { provide: OKTA_CONFIG, useValue: { oktaAuth } }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
