@@ -38,6 +38,7 @@ export class CheckoutComponent implements OnInit {
   shippingStates: State[] = [];
   billingStates: State[] = [];
   storage: Storage = sessionStorage;
+  isDisabled: boolean = false;
 
   //stripe API
 
@@ -257,7 +258,7 @@ export class CheckoutComponent implements OnInit {
 
     //compute total
 
-    this.paymentInfo.amount = this.totalPrice * 100;
+    this.paymentInfo.amount = Math.round(this.totalPrice * 100);
     this.paymentInfo.currency = 'USD';
 
     //call rest api checkout service
@@ -265,6 +266,7 @@ export class CheckoutComponent implements OnInit {
       !this.checkoutFormGroup.invalid &&
       this.displayError.textContent === ''
     ) {
+      this.isDisabled = true;
       this.checkoutService
         .createPaymentIntent(this.paymentInfo)
         .subscribe((paymentIntentResponse) => {
@@ -274,13 +276,26 @@ export class CheckoutComponent implements OnInit {
               {
                 payment_method: {
                   card: this.cardElement,
+                  billing_details: {
+                    email: purchase.customer.email,
+                    name: `${purchase.customer.firstName} ${purchase.customer.lastName}`,
+                    address: {
+                      line1: purchase.billingAddress.street,
+                      city: purchase.billingAddress.city,
+                      state: purchase.billingAddress.state,
+                      postal_code: purchase.billingAddress.zipCode,
+                      country: this.billingAddressCity?.value.code,
+                    }
+                  }
                 },
               },
               { handleActions: false }
             )
             .then((result: any) => {
+
               if (result.error) {
                 alert(`There was an error: ${result.error.message}`);
+                this.isDisabled = false;
               } else {
                 this.checkoutService.placeOrder(purchase).subscribe({
                   next: (response: any) => {
@@ -288,9 +303,11 @@ export class CheckoutComponent implements OnInit {
                       `Your order has been recieved. \nOrder tracking number: ${response.orderTrackingNumber}`
                       );
                       this.resetCart();
+                      this.isDisabled = false;
                   },
                   error: (err: any) => {
                     alert(`There was an error: ${err.message}`);
+                    this.isDisabled = false;
                   }
                 });
               }
@@ -305,8 +322,9 @@ export class CheckoutComponent implements OnInit {
     this.cartService.cartItems = [];
     this.cartService.totalPrice.next(0);
     this.cartService.totalQuantity.next(0);
-
+    this.cartService.persistCartItems();
     this.checkoutFormGroup.reset();
+    
 
     this.router.navigateByUrl('/products');
   }

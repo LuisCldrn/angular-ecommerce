@@ -9,7 +9,7 @@ import { Purchase } from '../common/purchase';
   providedIn: 'root'
 })
 export class CheckoutService {
-  private paymentIntentUrl = environment.luv2shopApiUrl + 'checkout/payment-intent'
+  private paymentIntentUrl = environment.luv2shopApiUrl + '/checkout/payment-intent'
   private purchaseUrl = environment.luv2shopApiUrl + '/checkout/purchase'
   constructor(
     private httpClient: HttpClient
