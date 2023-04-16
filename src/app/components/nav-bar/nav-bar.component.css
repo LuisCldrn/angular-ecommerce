@@ -1,0 +1,57 @@
+nav {
+    z-index: 999;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    background-color: #6a7a79;
+}
+    
+.btns {
+    display: flex;
+}
+
+.logo {
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+    color: rgb(228, 227, 227);
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.topRow {
+    width: 90vw;
+    display: flex;
+    height: 8vh;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+}
+
+.btns {
+    position: fixed;
+    right: 3vw;
+}
+
+.bottonRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 3vw;
+    justify-content: center;
+    align-items: center;
+}
+
+nav li a {
+    text-decoration: none;
+    color: rgb(235, 235, 235);
+    font-weight: 400;
+    font-size: 1.2rem;
+}

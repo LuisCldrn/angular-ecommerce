@@ -1,0 +1,102 @@
+.containers {
+    width: auto;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.205) 70%,rgba(0, 0, 0, 0.445) 95%), url('/assets/mainBG.jpg');
+    background-size: cover;
+}
+
+.btns {
+    display: flex;
+    gap: 3vw;
+    justify-items: center;
+    align-items: center;
+}
+
+.containers h1 {
+    padding-top: 40vh;
+    color: white;
+    font-weight: 400;
+    padding-bottom: 5vh;
+}
+
+.btns button {
+    padding: 5px;
+    background-color: transparent;
+    border: 3px white solid;
+}
+
+.btns button:hover {
+    scale: 1.05;
+    transition-duration: 0.3s;
+}
+
+.btns a {
+    border: 1px white solid;
+    text-decoration: none;
+    padding: 1.8vh 2.8vw;
+    color: white;
+    font-weight: 800;
+}
+
+.rawCards {
+    height: 80vh;
+    background-image: url('/assets/rawCardsBg.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.textInfo {
+    display: flex;
+    flex-direction: column;
+    width: 45vw;
+    padding: 5vw 5vw 0vw 5vw;
+    text-align: center; 
+}
+
+.textInfo h5 {
+    padding: 0vw 2vw;
+    font-size: 1vw;
+    font-weight: 400;
+}
+
+.rawBtns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45vw;
+    gap: 2vh;
+    padding: 5vw;
+}
+
+
+
+.rawBtns button {
+    background-color: transparent;
+    border: 2px rgb(110, 110, 110) solid;
+    width: 20vw;
+}
+
+.rawBtns a {
+    text-decoration: none;
+    padding: 2vh 3vw;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.rawBtns button:hover {
+    background-color: rgb(110, 110, 110);
+    transition-duration: .5s;
+}
+
+.rawBtns a:hover {
+    color: white;
+}

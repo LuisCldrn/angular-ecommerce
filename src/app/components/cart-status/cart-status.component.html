@@ -1,6 +1,13 @@
-<div class="cart-area d-n">
+<!-- <div class="">
   <a routerLink="/cart-details">
-    <div class="total">{{totalPrice | currency: 'USD'}}<span>{{totalQuantity}}</span></div>
-    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    <div class="total">{{totalPrice | currency: 'USD'}}<span></span></div>
+    <mat-icon matBadge="15" matBadgeColor="warn"></mat-icon>
+    <div matBadge="4" matBadgeOverlap="false" class="demo-section"></div>
   </a>
+</div> -->
+<div
+  matBadge="{{ totalQuantity }}"
+  matBadgeOverlap="false"
+  class="demo-section"
+> <a routerLink="/cart-details" ><img src="https://i.imgur.com/Igpx2Qh.png" alt=""></a>
 </div>

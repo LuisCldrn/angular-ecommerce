@@ -27,6 +27,12 @@ import myAppConfig from './config/my-app-config';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HomeComponent } from './components/home/home.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MaterialExampleModule } from 'src/material.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
@@ -47,6 +53,7 @@ const routes: Routes = [
     canActivate: [OktaAuthGuard],
     data: { onAuthRequired: sendToLoginPage },
   },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
@@ -74,6 +81,9 @@ const routes: Routes = [
     LoginStatusComponent,
     MembersPageComponent,
     OrderHistoryComponent,
+    HomeComponent,
+    NavBarComponent,
+    FooterComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -82,6 +92,8 @@ const routes: Routes = [
     NgbModule,
     ReactiveFormsModule,
     OktaAuthModule,
+    MaterialExampleModule,
+    NoopAnimationsModule,
   ],
   providers: [
     ProductService,
@@ -91,6 +103,7 @@ const routes: Routes = [
       useClass: AuthInterceptorService,
       multi: true,
     },
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
   ],
   bootstrap: [AppComponent],
 })

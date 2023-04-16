@@ -1,0 +1,78 @@
+.main {
+  background-color: #6a7a79;
+}
+
+.top {
+    display: flex;
+    padding: 3vh 3vw 0vh 3vw;
+    gap: 40vw;
+}
+
+h1, h5 {
+    color: white;
+    font-family: 'Lora', serif;
+    font-weight: 400;
+}
+
+h5 {
+    font-size: 0.8rem;
+}
+
+button {
+  padding: 0;
+  margin: 1vw;
+  border: solid rgb(255, 255, 255);
+  border-radius: 3vw;
+  background-color: transparent;
+}
+
+button:hover {
+  background-color: rgb(42, 53, 82);
+  transition-duration: 0.5s;
+  border: solid rgb(42, 53, 82);
+}
+
+button a:hover {
+  color: white;
+}
+
+button img {
+  width: 2vw;
+}
+
+button a {
+  border-radius: 3vw;
+  padding: 1.5vh 2vw;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 1.3vw;
+  font-weight: 400;
+}
+
+.main ul {
+    padding: 1vh 3vw;
+    list-style: none;
+    display: flex;
+    gap: 3vw;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+}
+
+.main li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+p {
+    margin: 0;
+    padding: 1vh 3vw;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 300;
+}

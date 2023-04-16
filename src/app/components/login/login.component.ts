@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
         }
       },
       (error: any) => {
+        console.log(error)
         throw error;
       }
     );
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit {
       baseUrl: myAppConfig.oidc.issuer.split('/oauth2')[0],
       clientId: myAppConfig.oidc.clientId,
       redirectUri: myAppConfig.oidc.redirectUri,
+      response_mode: "query",
       authParams: {
         pkce: true,
         issuer: myAppConfig.oidc.issuer,
