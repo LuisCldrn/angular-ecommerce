@@ -1,10 +1,27 @@
 <div class="main-content">
-  <div class="section-content section-content-p30">
-    <div class="container-fluid">
-      <div class="row">
-        <div *ngFor="let tempProduct of products" class="col-md-3">
+  <app-product-category-menu></app-product-category-menu>
+  <div class="">
+    <div class="">
+      <div class="product-lists">
+        <div class="card-holder" *ngFor="let tempProduct of products" >
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>{{tempProduct.name}}</mat-card-title>
+              <mat-card-subtitle>{{tempProduct.setName}}</mat-card-subtitle>
+            </mat-card-header>
+            <a routerLink="/products/ {{tempProduct.id}}"><img src="{{tempProduct.imageUrl}}" class="" mat-card-image></a>
+            <mat-card-content>
+              <h4>{{ tempProduct.unitPrice | currency : "USD" }}</h4>
+              <mat-card-actions ><button (click)="addToCart(tempProduct)" mat-raised-button class="addToCart" >Add to Cart</button></mat-card-actions>
+            </mat-card-content>
+            
+          </mat-card>
+        </div>
+        
+        
+        <!-- <div *ngFor="let tempProduct of products" class="col-md-3">
           <div class="product-box">
-            <a routerLink="/products/{{ tempProduct.id }}"
+            <a{{ tempProduct.id }}"
               ><img
                 src="{{ tempProduct.imageUrl }}"
                 class="img-responsive"
@@ -18,17 +35,17 @@
             </div>
             <button class="btn btn-primary btn-sm" (click)="addToCart(tempProduct)" >Add to cart</button>
           </div>
-        </div>
+        </div> -->
 
-        <div
-          *ngIf="products?.length == 0"
-          class="alert alert-warning col-md-12"
-          role="alert"
-        >
-          No Products found
-        </div>
+        
       </div>
-
+      <div
+      *ngIf="products?.length == 0"
+      class="alert alert-warning col-md-12"
+      role="alert"
+    >
+      No Products found
+    </div>
       <!-- Footer -->
       <div class="footer-pagination">
         <div class="row">

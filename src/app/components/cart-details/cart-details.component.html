@@ -10,11 +10,7 @@
           </tr>
           <tr *ngFor="let tempCartItem of cartItems">
             <td>
-              <img
-                src="{{ tempCartItem.imageUrl }}"
-                class="img-responsive"
-                width="150px"
-              />
+              <img src="{{ tempCartItem.imageUrl }}" class="img-responsive" width="150px" />
             </td>
             <td>
               <p>{{ tempCartItem.name }}</p>
@@ -24,10 +20,7 @@
               <div class="items">
                 <div class="row no-gutters">
                   <div class="col">
-                    <button
-                      (click)="decrementQuantity(tempCartItem)"
-                      class="btn-primary btn btn-sm"
-                    >
+                    <button (click)="decrementQuantity(tempCartItem)" class="btn-primary btn btn-sm">
                       <i class="fas fa-minus"></i>
                     </button>
                   </div>
@@ -37,10 +30,7 @@
                   </div>
 
                   <div class="col">
-                    <button
-                      (click)="incrementQuantity(tempCartItem)"
-                      class="btn-primary btn btn-sm"
-                    >
+                    <button (click)="incrementQuantity(tempCartItem)" class="btn-primary btn btn-sm">
                       <i class="fas fa-plus"></i>
                     </button>
                   </div>
@@ -48,18 +38,15 @@
                   <div class="col-8"></div>
                 </div>
               </div>
-              <button
-                (click)="remove(tempCartItem)"
-                class="btn-primary btn btn-sm mt-2"
-                style="background-color: var(--bs-btn-bg)"
-              >
+              <button (click)="remove(tempCartItem)" class="btn-danger btn btn-sm mt-2"
+                style="background-color: var(--bs-btn-bg)">
                 Remove
               </button>
               <p class="mt-2">
                 SubTotal:
                 {{
-                  tempCartItem.quantity * tempCartItem.unitPrice
-                    | currency : "USD"
+                tempCartItem.quantity * tempCartItem.unitPrice
+                | currency : "USD"
                 }}
               </p>
             </td>
@@ -70,16 +57,12 @@
               <p>Total Quantity: {{ totalQuantity }}</p>
               <p>Shipping: FREE</p>
               <P>Total Price: {{ totalPrice | currency : "USD" }}</P>
-              <a routerLink="/checkout" class="btn btn-primary">Checkout</a>
+              <button ><a routerLink="/checkout" class="btn btn-success" >Checkout</a></button>
             </td>
           </tr>
         </table>
       </div>
-      <div
-        *ngIf="cartItems.length == 0"
-        class="alert alert-warning col-md-12"
-        role="alert"
-      >
+      <div *ngIf="cartItems.length == 0" class="alert alert-warning col-md-12" role="alert">
         Shopping Cart is Empty
       </div>
     </div>

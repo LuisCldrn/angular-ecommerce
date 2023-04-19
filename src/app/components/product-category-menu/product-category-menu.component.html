@@ -1,4 +1,4 @@
-<nav class="navbar-sidebar">
+<!-- <nav class="navbar-sidebar">
   <ul class="categoryList">
     <li *ngFor="let tempProductCategory of productCategories">
       <a
@@ -8,4 +8,13 @@
       >
     </li>
   </ul>
-</nav>
+</nav> -->
+<div class="filters">
+  <div class="input-group mb-3 no-top-margin filter">
+    <select #cat (change)="changePage(cat.value)" class="form-select" >
+      <option value="/products">FILTER BY SET</option>
+      <option value="/category/{{ tempProductCategory.id }}" *ngFor="let tempProductCategory of productCategories">{{ tempProductCategory.categoryName }}</option>
+    </select>
+  </div>
+  <app-search></app-search>
+</div>

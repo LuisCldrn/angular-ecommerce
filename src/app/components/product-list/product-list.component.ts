@@ -71,7 +71,9 @@ export class ProductListComponent implements OnInit {
     if (hasCategoryId) {
       this.currrentCategoryId = +this.aRoute.snapshot.paramMap.get('id')!;
     } else {
-      this.currrentCategoryId = 1;
+      this.thePageNumber = 1;
+      this.productService.getAllProducts(this.thePageNumber - 1, this.thePageSize).subscribe(this.processResult());
+      return
     }
 
     if (this.previousCategoryId != this.currrentCategoryId) {

@@ -1,5 +1,9 @@
-<div class="form-header">
+<!-- <div class="form-header">
   <input #myInput class="au-input au-input-xl" type="text" placeholder="Search for data ..." 
         (keyup.enter)="doSearch(myInput.value)"/>
   <button class="au-btn-submit" (click)="doSearch(myInput.value)">Search</button>
+</div> -->
+<div class="input-group mb-3 seachBar">
+  <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+  <input #myInput type="text" class="form-control" (keyup.enter)="doSearch(myInput.value)" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
 </div>

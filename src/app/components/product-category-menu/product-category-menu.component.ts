@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductCategory } from 'src/app/common/product-category';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -12,7 +13,8 @@ export class ProductCategoryMenuComponent implements OnInit {
   productCategories: ProductCategory[] = []
 
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -24,6 +26,10 @@ export class ProductCategoryMenuComponent implements OnInit {
         this.productCategories = data;
       }
     )
+  }
+
+  changePage(uri: string) {
+    this.router.navigateByUrl(uri);
   }
 
 }

@@ -1,14 +1,26 @@
-<div class="detail-section">
-    <div class="container-fluid">
-
-        <img src="{{product.imageUrl}}" class="detail-img" >
-        <h3>{{product.name}}</h3>
-        <div class="price">{{product.unitPrice | currency: 'USD'}}</div>
-        <button (click)="addToCart(product)" class="btn btn-sm btn-primary">Add to Cart</button>
-        <hr>
-        <h4>Description</h4>
-        <p>{{product.description}}</p>
-
-        <a routerLink="/products" class="mt-5" >Back to Product List</a>
+<div class="main">
+    <div class="product-details">
+        <div class="main-img">
+            <img src="{{product.imageUrl}}" alt="">
+        </div>
+        <div class="main-info">
+            <h1>{{product.name}}</h1>
+            <h3>{{product.unitPrice | currency: 'USD'}}</h3>
+            <h2>{{product.setName}}</h2>
+            <h3>CONDITION: {{product.condition}}</h3>
+            <p>
+                This card condition is listed as Near Mint/Mint. <br>
+                For full descriptions and visual examples of how much "wear and tear" is associated with each condition.
+            </p>
+            <button><a href="">CONDITION GUIDE</a></button>
+            <button (click)="addToCart(product)"><a class="addToCart" >ADD TO CART</a></button>
+        </div>
     </div>
+    <div class="imgs">
+        <img src="{{product.imageBackUrl}}" alt="">
+        <img src="{{product.imageTwoUrl}}" alt="">
+        <img src="{{product.imageThreeUrl}}" alt="">
+    </div>
+    <a routerLink="/products">Back to Product List</a>
 </div>
+

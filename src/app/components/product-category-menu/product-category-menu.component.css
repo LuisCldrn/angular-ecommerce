@@ -1,0 +1,11 @@
+.filter {
+    width: 30vw !important;
+}
+
+.filters {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}

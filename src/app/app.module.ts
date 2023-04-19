@@ -33,6 +33,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MaterialExampleModule } from 'src/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
@@ -63,8 +64,8 @@ const routes: Routes = [
   { path: 'cart-details', component: CartDetailsComponent },
   { path: 'category', component: ProductListComponent },
   { path: 'products', component: ProductListComponent },
-  { path: '', component: ProductListComponent },
-  { path: '**', redirectTo: '/products', pathMatch: 'full' },
+  { path: '', component: HomeComponent },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -84,6 +85,7 @@ const routes: Routes = [
     HomeComponent,
     NavBarComponent,
     FooterComponent,
+    SpinnerComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -16,6 +16,13 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) {}
 
+  getAllProducts(
+    thePage: number,
+    thePageSize: number,
+  ):Observable<GetResposeProducts> {
+    return this.httpClient.get<GetResposeProducts>(`${this.baseUrl}?page=${thePage}&size=${thePageSize}` )
+  }
+
   getProductList(categoryId: number): Observable<Product[]> {
     let searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryId}`;
 
@@ -54,7 +61,7 @@ export class ProductService {
     theKeyword: string,
   ): Observable<GetResposeProducts> {
     let searchUrl =
-      `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}` +
+      `${this.baseUrl}/search/findByDescriptionContaining?description=${theKeyword}` +
       `&page=${thePage}&size=${thePageSize}`;
 
     return this.httpClient.get<GetResposeProducts>(searchUrl);

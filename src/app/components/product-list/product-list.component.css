@@ -1,0 +1,56 @@
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+.main-content {
+    background-color: rgb(237, 241, 236);
+}
+
+mat-card {
+    width: 23vw;
+}
+
+mat-card-title {
+    font-weight: 600;
+    color: rgb(77, 148, 124);
+}
+
+.product-lists {
+    display: grid;
+    padding: 2vw;
+    grid-template-areas: "1 1 1 1";
+    row-gap: 3vh;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+mat-card-content h4 {
+    margin: 0;
+    font-weight: 600;
+    color: rgb(38, 117, 38);
+    font-size: 1.3rem;
+}
+
+.alert {
+    margin: 1vh 3vw;
+    width: 80vw;
+}
+
+.addToCart {
+    background-color: rgb(76, 163, 120) !important;
+}
+
+.addToCart {
+    font-weight: 500;
+    color: white !important;
+}
