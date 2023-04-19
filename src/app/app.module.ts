@@ -34,6 +34,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MaterialExampleModule } from 'src/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { LoadingInterceptor } from './loading.interceptor';
 
 const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
@@ -105,6 +106,7 @@ const routes: Routes = [
       useClass: AuthInterceptorService,
       multi: true,
     },
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
     {provide: LocationStrategy, useClass: HashLocationStrategy},
   ],
   bootstrap: [AppComponent],
