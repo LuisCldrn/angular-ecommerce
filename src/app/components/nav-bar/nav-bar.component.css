@@ -60,3 +60,18 @@ nav li a {
 .space {
     height: 10vh;
 }
+
+@media only screen and (max-width: 960px) {
+    .login {
+        position: fixed;
+        top: 1vh;
+        left: 5vw;
+    }
+
+    .cart {
+        position: fixed;
+        top: 2vh;
+        right: 8vw;
+    }
+
+}

@@ -54,3 +54,25 @@ mat-card-content h4 {
     font-weight: 500;
     color: white !important;
 }
+
+@media only screen and (max-width: 960px) {
+    .product-lists {
+        display: grid;
+        padding: 1vw;
+        grid-template-areas: "1 1";
+        row-gap: 1vh;
+    }
+
+    mat-card {
+        width: 47vw;
+    }
+
+    button {
+        font-size: 0.7rem !important;
+    }
+
+    mat-card-content h4 {
+        font-size: 1.1rem;
+    }
+
+}

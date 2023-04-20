@@ -4,7 +4,7 @@
 }
 
 .main {
-    
+
     padding: 6vh 3vw;
 }
 .main-img {
@@ -70,4 +70,27 @@ a {
     font-weight: 600;
     font-size: 1rem;
     margin-top: 3vh;
+}
+
+@media only screen and (max-width: 960px) {
+    .product-details {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-img {
+        width: 80vw;
+    }
+
+    .main-info {
+        width: 80vw;
+        border-radius: 1vw;
+        padding: 1vh;
+    }
+
+    .imgs {
+        display: flex;
+        flex-direction: column;
+    }
 }

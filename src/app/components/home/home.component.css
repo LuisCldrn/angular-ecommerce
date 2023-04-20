@@ -100,3 +100,33 @@
 .rawBtns a:hover {
     color: white;
 }
+
+@media only screen and (max-width: 960px) {
+
+    .containers h1 {
+        padding-left: 3vw;
+        text-align: center;
+
+    }
+
+    .textInfo {
+        width: 90vw;
+    }
+
+    .textInfo h5 {
+        font-size: 3vw;
+    }
+
+    .textInfo h5,  h3 {
+        font-weight: 600;
+    }
+
+    .rawBtns {
+        width: 90vw;
+    }
+
+    .rawBtns button {
+        width: 45vw;
+    }
+
+}

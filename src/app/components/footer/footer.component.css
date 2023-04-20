@@ -76,3 +76,18 @@ p {
     font-size: 0.8rem;
     font-weight: 300;
 }
+
+@media only screen and (max-width: 960px) {
+  button a {
+    font-size: 3vw;
+    width: 40vw;
+  }
+
+  button img {
+    width: 5vw;
+  }
+
+  .top {
+    gap: 20vw;
+  }
+}
