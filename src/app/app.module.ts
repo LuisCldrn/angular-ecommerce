@@ -35,6 +35,7 @@ import { MaterialExampleModule } from 'src/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LoadingInterceptor } from './loading.interceptor';
+import { ContactMeComponent } from './components/contact-me/contact-me.component';
 
 const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
@@ -65,6 +66,7 @@ const routes: Routes = [
   { path: 'cart-details', component: CartDetailsComponent },
   { path: 'category', component: ProductListComponent },
   { path: 'products', component: ProductListComponent },
+  { path: 'contactUs', component: ContactMeComponent },
   { path: '', component: HomeComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
@@ -87,6 +89,7 @@ const routes: Routes = [
     NavBarComponent,
     FooterComponent,
     SpinnerComponent,
+    ContactMeComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
